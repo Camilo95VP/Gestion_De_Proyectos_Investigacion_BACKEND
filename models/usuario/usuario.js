@@ -33,6 +33,15 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+    validate:{
+      validator: (pass) =>{
+        if (pass.length>=8){
+          return true
+        } else 
+        {return false}
+      },
+      message: 'La contraseña es muy corta, utilice otra'
+    }
   },
   identificacion: {
     type: String,
